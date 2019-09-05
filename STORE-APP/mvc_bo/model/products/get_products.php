@@ -44,10 +44,6 @@ function get_products()
     // $categoriesSTR = $products[0]['categories'];
     // $categoriesARR = explode(',', $categoriesSTR);
 
-    echo "<pre>";
-    print_r($products);
-    echo "</pre>";
-
     return $products;
 }
 
@@ -59,20 +55,25 @@ function get_products()
 
 //============= VIEW ===========
 $datas = get_products();
+// echo "<h1>DATAS</h1>";
+// echo "<pre>";
+// print_r($datas);
+// echo "</pre>";
 
-echo "<h1>LABELS:(" . count($datas) . ")</h1>";
+// echo "<h1>LABELS:(" . count($datas) . ")</h1>";
 
-$arr = array_map('arrProByCat', $datas);
+$products_categories = array_map('arrProByCat', $datas);
 
 function arrProByCat($data)
 {
     $pdo = dbConnect();
     $id = intval($data['cat_id']);
-    $sql = "SELECT pc.st_products_pro_id, p.*
+    $sql = "SELECT pc.st_products_pro_id, p.*,cat_id, cat_descr
     FROM st_products_has_st_categories AS pc
     JOIN st_products AS p ON p.pro_id = pc.st_products_pro_id
+    JOIN st_categories AS c ON c.cat_id = pc.st_categories_cat_id
     WHERE pc.st_categories_cat_id IN ($id)
-    GROUP BY pc.st_products_pro_id LIMIT 3";
+    GROUP BY pc.st_products_pro_id LIMIT 2";
 
     $req = $pdo->prepare($sql);
     $req->execute();
@@ -81,6 +82,26 @@ function arrProByCat($data)
     return $products;
 }
 
+echo "<h1>ARRAY</h1>";
 echo "<pre>";
-print_r($arr); // Retourne un tableau de produits pour chaque sous-catégorie d'une catégorie MAIN(Parent)
+print_r($products_categories); // Retourne un tableau de produits pour chaque sous-catégorie d'une catégorie MAIN(Parent)
 echo "</pre>";
+
+//=================================================
+
+foreach ($products_categories as $key => $pc) {
+    echo "<h1 style='border:1px solid red; padding:20px;margin-bottom:0;width:300px'>"
+        . $pc[0]['cat_descr'] .
+        "</h1>";
+    foreach ($pc as $key => $pc) {
+        echo <<<HTML
+        <div style='border:1px solid black; padding:20px; width:300px'>
+        <h3>{$pc['pro_title']}</h3>
+        <p>{$pc['pro_subtitle1']}</p>
+        <p>{$pc['pro_descr']}</p>
+        <p>{$pc['pro_price_euro']}€</p>
+        <p>{$pc['cat_descr']}</p>
+        </div>
+HTML;
+    }
+}
