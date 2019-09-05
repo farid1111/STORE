@@ -10,7 +10,7 @@
                     <i class="fa fa-plus "></i>
                 </span>
                 <span class="clear text-left l-h-1x">
-                    <b class="text-sm m-b-xs">Ajouter un Client</b>
+                    <b class="text-sm m-b-xs">Ajouter un Compte</b>
                 </span>
             </a>
         </div>

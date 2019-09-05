@@ -62,12 +62,8 @@
                     <a class="dropdown-item" ui-sref="app.page.profile">
                         <span>Profile</span>
                     </a>
-                    <a class="dropdown-item" ui-sref="app.page.setting">
-                        <span>Settings</span>
-                        <span class="label primary m-l-xs">3/9</span>
-                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" ui-sref="access.signin">Sign out</a>
+                    <a class="dropdown-item" ui-sref="access.signin">Déconnexion</a>
                 </div>
             </li>
         </ul>
