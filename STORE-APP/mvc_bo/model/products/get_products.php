@@ -35,7 +35,7 @@ function get_products()
     $sql = "SELECT cc.st_categories_cat_id, c.cat_id, c.cat_descr
     FROM st_categories_main_has_st_categories AS cc
     JOIN st_categories AS c ON c.cat_id = cc.st_categories_cat_id
-    WHERE cc.st_categories_main_cat_main_id IN (1)
+    WHERE cc.st_categories_main_cat_main_id IN (2)
     GROUP BY cc.st_categories_cat_id";
 
     $req = $pdo->prepare($sql);
@@ -68,12 +68,13 @@ function arrProByCat($data)
 {
     $pdo = dbConnect();
     $id = intval($data['cat_id']);
-    $sql = "SELECT pc.st_products_pro_id, p.*,cat_id, cat_descr
+    // Selectionner et filtrer les produits + les catégories correspondantes via un "cat_id":
+    $sql = "SELECT p.*,c.cat_id, c.cat_descr
     FROM st_products_has_st_categories AS pc
     JOIN st_products AS p ON p.pro_id = pc.st_products_pro_id
     JOIN st_categories AS c ON c.cat_id = pc.st_categories_cat_id
     WHERE pc.st_categories_cat_id IN ($id)
-    GROUP BY pc.st_products_pro_id LIMIT 2";
+    LIMIT 2";
 
     $req = $pdo->prepare($sql);
     $req->execute();
@@ -89,15 +90,16 @@ echo "</pre>";
 
 //=================================================
 
-foreach ($products_categories as $key => $pc) {
-    echo "<h1 style='border:1px solid red; padding:20px;margin-bottom:0;width:300px'>"
+foreach ($products_categories as $pc) {
+    echo "<h1 style=' padding:20px;margin-bottom:0;background:tomato; color:white'>"
         . $pc[0]['cat_descr'] .
         "</h1>";
     foreach ($pc as $key => $pc) {
         echo <<<HTML
-        <div style='border:1px solid black; padding:20px; width:300px'>
+        <div style='border:1px solid black; padding:20px'>
         <h3>{$pc['pro_title']}</h3>
         <p>{$pc['pro_subtitle1']}</p>
+        <p>{$pc['pro_subtitle2']}</p>
         <p>{$pc['pro_descr']}</p>
         <p>{$pc['pro_price_euro']}€</p>
         <p>{$pc['cat_descr']}</p>
