@@ -104,6 +104,11 @@
     </div>
 </div>
 
+<div>
+    <h3>TITLE: <?=$data['title']?></h3>
+    <h3>DESCRIPTION: <?=$data['desc']?></h3>
+</div>
+
 <!-- END CONTENT -->
 
 <?php include APP_PATH . '/views/layout/footer.inc.php';?>
