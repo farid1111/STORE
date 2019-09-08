@@ -1,9 +1,10 @@
 Options -MultiViews
 RewriteEngine On
 
-RewriteBase /STORE/STORE-APP/mvc_bo/public
+RewriteBase /app/STORE/STORE-APP/mvc_bo/public
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+# Tous ce qui se trouve apès "public/index.php?url=$1", on le récupère dans $_GET['url'].
