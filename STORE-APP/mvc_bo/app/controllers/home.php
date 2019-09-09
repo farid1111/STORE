@@ -29,7 +29,7 @@ class Home extends Controller
 
         // DELETE:Supprimer une ligne en lui fournissant un ID dans la méthode "find()":
         //Product::find(22)->delete();
-        //$deleteRows = Product::where('id', 21)->delete(); // retourne le nombre de ligne(s) supprimée(s)
+        $deleteRows = Product::where('title', 'Le-titre')->delete(); // retourne le nombre de ligne(s) supprimée(s)
 
         echo "<pre>";
         echo "Réussi: voici ce qui a été enregisterer dans la base de données:";

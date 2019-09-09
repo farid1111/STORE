@@ -2,9 +2,9 @@
 class Products extends Controller
 {
 
-    public function show()
+    public function index()
     {
-        $this->view('products/show_products', ['page_title' => "Affichage des produits"]);
+        $this->view('products/show_products', ['page_title' => "Affichage des produits", "name" => "FARID"]);
     }
 
     public function add()

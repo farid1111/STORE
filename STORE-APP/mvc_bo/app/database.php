@@ -15,3 +15,4 @@ $capsule->addConnection([
 ]);
 
 $capsule->bootEloquent();
+// public function setFetchMode($fetchMode)
