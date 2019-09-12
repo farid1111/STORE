@@ -24,6 +24,7 @@
             <div class="box-divider m-0"></div>
             <ul class="list no-border p-b totalElements">
                 <!-- START FOREACH LOOP -->
+                <?php foreach ($data['customers'] as $customer): ?>
                 <li class="list-item">
                     <a herf="" class="list-left">
                         <span class="w-40 avatar">
@@ -33,105 +34,28 @@
                     </a>
                     <div class="list-body">
                         <div class="m-y-sm pull-right">
-                            <a href="" class="btn btn-sm  white b-info">
+
+                            <a href="" class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
                                 <i class="fa fa-link"></i>
                             </a>
-                            <a href="" class="btn btn-sm  white b-danger">
+
+                            <a href="" class="btn btn-sm  white b-danger" data-toggle="tooltip" data-placement="top" title="supprimer">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <a href="" class="btn btn-sm white b-success">
+
+                            <a href="" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
                                 <i class="fa fa-pencil "></i>
                             </a>
                         </div>
                         <div>
-                            <span>Anabelle</span>
-                            <small class="block"><i class="fa fa-phone m-r-sm text-muted"></i>(021) 9000 9877</small>
+                            <span class="label brown-300"><?=$customer['cus_civility'] === 1 ? 'H' : 'F';?></span>
+                            <span class=""><?=$customer['cus_lastname']?> <?=$customer['cus_firstname']?></span>
+                            <small class="block"><i class="fa fa-envelope m-r-sm text-muted"></i><?=$customer['cus_mail']?></small>
                         </div>
                     </div>
                 </li>
+                <?php endforeach;?>
                 <!-- START FOREACH LOOP -->
-
-                <!-- START REMOVE -->
-                <li class="list-item">
-                    <a herf="" class="list-left">
-                        <span class="w-40 avatar">
-                            <img src="<?=to_src('assets/images/a5.jpg')?>" alt="...">
-                            <i class="busy b-white bottom"></i>
-                        </span>
-                    </a>
-                    <div class="list-body">
-                        <div class="m-y-sm pull-right">
-                            <a href="" class="btn btn-sm  white b-info">
-                                <i class="fa fa-link"></i>
-                            </a>
-                            <a href="" class="btn btn-sm  white b-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="" class="btn btn-sm white b-success">
-                                <i class="fa fa-pencil "></i>
-                            </a>
-                        </div>
-                        <div>
-                            <span>Fafa</span>
-                            <small class="block"><i class="fa fa-phone m-r-sm text-muted"></i>(021) 9000 9877</small>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="list-item">
-                    <a herf="" class="list-left">
-                        <span class="w-40 avatar">
-                            <img src="<?=to_src('assets/images/a6.jpg')?>" alt="...">
-                            <i class="away b-white bottom"></i>
-                        </span>
-                    </a>
-                    <div class="list-body">
-                        <div class="m-y-sm pull-right">
-                            <a href="" class="btn btn-sm  white b-info">
-                                <i class="fa fa-link"></i>
-                            </a>
-                            <a href="" class="btn btn-sm  white b-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="" class="btn btn-sm white b-success">
-                                <i class="fa fa-pencil "></i>
-                            </a>
-                        </div>
-                        <div>
-                            <span>Marijuata</span>
-                            <small class="block"><i class="fa fa-phone m-r-sm text-muted"></i>(021) 9000 9877</small>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="list-item">
-                    <a herf="" class="list-left">
-                        <span class="w-40 avatar">
-                            <img src="<?=to_src('assets/images/a7.jpg')?>" alt="...">
-                            <i class="on b-white bottom"></i>
-                        </span>
-                    </a>
-                    <div class="list-body">
-                        <div class="m-y-sm pull-right">
-                            <a href="" class="btn btn-sm  white b-info">
-                                <i class="fa fa-link"></i>
-                            </a>
-                            <a href="" class="btn btn-sm  white b-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="" class="btn btn-sm white b-success">
-                                <i class="fa fa-pencil "></i>
-                            </a>
-                        </div>
-                        <div>
-                            <span>Gwendalou</span>
-                            <small class="block"><i class="fa fa-phone m-r-sm text-muted"></i>(021) 9000 9877</small>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- END REMOVE -->
-
             </ul>
         </div>
     </div>

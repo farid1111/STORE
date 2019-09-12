@@ -2,9 +2,15 @@
 class Categories extends Controller
 {
 
+    public function __construct()
+    {
+        $this->model('Category');
+    }
+
     public function show()
     {
-        $this->view('categories/show_categories', ['page_title' => "Affichage des catégories"]);
+        $categories = Category::all();
+        $this->view('categories/show_categories', ['page_title' => "Affichage des catégories", "categories" => $categories]);
     }
 
     public function add()

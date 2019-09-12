@@ -105,9 +105,23 @@
 </div>
 
 <div>
-    <h3>TITLE: <?=$data['title']?></h3>
-    <h3>DESCRIPTION: <?=$data['desc']?></h3>
+    <!-- Ici on passe un seul param via le href="" pour le récupérer sur la page du chemin:/home/index -->
+    <!-- donc on le récupère exactement dans la méthode 'index($name, $age, $job,...)' de la classe 'home.php' -->
+    <!-- ici le param $name de index() veut 'Coucou' -->
+    <!-- La variable $data & $view nous vient du /core/Controller, tandis que leurs valeurs nous viennet d'un des méthodes d'une classe dans le dossier /controllers -->
+
+    <h6>
+        <span class="label brown-300"><?=$view?>.php</span>
+        L'adresse réelle de l'adresse virtuelle:
+        <span class="label brown-300">home/index</span>
+    </h6>
+
+    <p><?=$data['product']->pro_title?></p>
+    <p><?=$data['product']->pro_subtitle1?></p>
+    <p><?=$data['product']->pro_subtitle2?></p>
+    <p><?=$data['product']->pro_descr?></p>
 </div>
+
 
 <!-- END CONTENT -->
 

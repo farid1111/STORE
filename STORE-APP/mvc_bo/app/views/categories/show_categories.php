@@ -22,111 +22,41 @@
         <div class="box-divider m-0"></div>
         <ul class="list inset totalElements">
             <!-- START FOREACH LOOP -->
-            <li class="list-item">
+            <?php foreach ($data['categories'] as $category): ?>
+            <li class="list-item ">
                 <a herf="" class="list-left">
                     <span class="w-40 r-2x _600 text-lg text-u-c accent brown"></span>
                 </a>
+
                 <div class="list-body">
                     <div class="m-y-sm pull-right">
-                        <a href="" class="btn btn-sm  white b-info">
+                        <a href="" class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
                             <i class="fa fa-link"></i>
                         </a>
-                        <a href="" class="btn btn-sm  white b-danger">
+
+                        <a href="" class="btn btn-sm  white b-danger" data-toggle="tooltip" data-placement="top" title="supprimer">
                             <i class="fa fa-trash"></i>
                         </a>
-                        <a href="" class="btn btn-sm white b-success">
+
+                        <a href="" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
                             <i class="fa fa-pencil "></i>
                         </a>
                     </div>
-                    <div><a class="firstTitle" href="">BLANC</a></div>
-                    <div class="text-sm">
+
+                    <div>
+                        <a class="firstTitle h-100" href=""><?=$category['cat_descr']?></a>
+                    </div>
+
+
+                    <!-- <div class="text-sm">
                         <span class="text-muted">Chocolat noir au lait grand cru avec caramel | Pérou</span>
                         <span class="label brown-300"></span>
                         <span class="label red-300"></span>
-                    </div>
+                    </div> -->
                 </div>
             </li>
+            <?php endforeach;?>
             <!-- END FOREACH LOOP -->
-
-            <!-- START REMOVE -->
-
-            <li class="list-item">
-                <a herf="" class="list-left">
-                    <span class="w-40 r-2x _600 text-lg text-u-c accent brown-100"></span>
-                </a>
-                <div class="list-body">
-                    <div class="m-y-sm pull-right">
-                        <a href="" class="btn btn-sm  white b-info">
-                            <i class="fa fa-link"></i>
-                        </a>
-                        <a href="" class="btn btn-sm  white b-danger">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                        <a href="" class="btn btn-sm white b-success">
-                            <i class="fa fa-pencil "></i>
-                        </a>
-                    </div>
-                    <div><a class="firstTitle" href="">AU LAIT</a></div>
-                    <div class="text-sm">
-                        <span class="text-muted">Chocolat noir au lait grand cru avec caramel | Pérou</span>
-                        <span class="label brown-300"></span>
-                        <span class="label red-300"></span>
-                    </div>
-                </div>
-            </li>
-
-            <li class="list-item">
-                <a herf="" class="list-left">
-                    <span class="w-40 r-2x _600 text-lg text-u-c accent brown-100"></span>
-                </a>
-                <div class="list-body">
-                    <div class="m-y-sm pull-right">
-                        <a href="" class="btn btn-sm  white b-info">
-                            <i class="fa fa-link"></i>
-                        </a>
-                        <a href="" class="btn btn-sm  white b-danger">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                        <a href="" class="btn btn-sm white b-success">
-                            <i class="fa fa-pencil "></i>
-                        </a>
-                    </div>
-                    <div><a class="firstTitle" href="">RUBIS</a></div>
-                    <div class="text-sm">
-                        <span class="text-muted">Chocolat noir au lait grand cru avec caramel | Pérou</span>
-                        <span class="label brown-300"></span>
-                        <span class="label red-300"></span>
-                    </div>
-                </div>
-            </li>
-
-            <li class="list-item">
-                <a herf="" class="list-left">
-                    <span class="w-40 r-2x _600 text-lg text-u-c accent brown-100"></span>
-                </a>
-                <div class="list-body">
-                    <div class="m-y-sm pull-right">
-                        <a href="" class="btn btn-sm  white b-info">
-                            <i class="fa fa-link"></i>
-                        </a>
-                        <a href="" class="btn btn-sm  white b-danger">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                        <a href="" class="btn btn-sm white b-success">
-                            <i class="fa fa-pencil "></i>
-                        </a>
-                    </div>
-                    <div><a class="firstTitle" href="">NOIR</a></div>
-                    <div class="text-sm">
-                        <span class="text-muted">Chocolat noir au lait grand cru avec caramel | Pérou</span>
-                        <span class="label brown-300"></span>
-                        <span class="label red-300"></span>
-                    </div>
-                </div>
-            </li>
-
-
-            <!-- END REMOVE -->
         </ul>
     </div>
 </div>

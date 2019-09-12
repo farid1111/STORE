@@ -8,7 +8,7 @@ $capsule->addConnection([
     'host' => 'localhost', //'127.0.0.1'
     'username' => 'root',
     'password' => '',
-    'database' => 'testing',
+    'database' => 'afpa0519_store_1',
     'charset' => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix' => '',

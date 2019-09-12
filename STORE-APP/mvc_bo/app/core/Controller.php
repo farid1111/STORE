@@ -1,5 +1,8 @@
 <?php
 
+// The ROUTER:
+// On récupére dans une méthode d'un controller => /controllers les deux fonctions ci-dessous model() & view()
+// par un "extends" de cette classe Controller:
 class Controller
 {
     public function model($model)

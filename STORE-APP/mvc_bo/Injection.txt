@@ -1,0 +1,4 @@
+Inversion de contrôle:
+Les frameworks MVC fourniront généralement un super-objet ou un contrôleur de base dont les autres contrôleurs doivent hériter pour avoir accès à ses dépendances. C’est ça l’inversion de contrôle, cependant au lieu de séparer les différentes dépendances, cette méthode ne fait que les déplacer.
+
+L’injection de dépendances nous permet de résoudre ce problème de façon plus élégante en injectant uniquement les dépendances dont nous avons besoin, quand nous avons besoin et ce sans avoir à écrire en dur quelque dépendance que ce soit.

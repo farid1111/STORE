@@ -1,7 +1,7 @@
 <?php
 class App
 {
-    // Default controller & methode values :
+    // Default controller(class) & methode values :
     protected $controller = "home";
     protected $method = "index";
     protected $params = [];
