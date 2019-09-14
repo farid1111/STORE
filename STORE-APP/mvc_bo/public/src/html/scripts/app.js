@@ -115,8 +115,8 @@
   })
 })
 
-const liElements = document.querySelectorAll('.totalElements li').length;
-const totalNumber = document.querySelector('.totalNumber').textContent =liElements;
+// const liElements = document.querySelectorAll('.totalElements li').length;
+// // const totalNumber = document.querySelector('.totalNumber').textContent =liElements;
 const firstTitle = [...document.querySelectorAll('.firstTitle')];
 
 const letters = firstTitle.map(el=>{
@@ -131,6 +131,93 @@ const letters = firstTitle.map(el=>{
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+// SLICE ABSOLUTE URL:
+function slice_url(url){
+let searchTerm = 'public';
+let indexOfFirst = url.indexOf(searchTerm)+7;
+return url.slice(-url.length,indexOfFirst)
+}
+
+
+
+// AJAX add category:
+$('#cat').submit(function(e){
+  e.preventDefault()
+  // var data = {
+  //   action: 'test'
+  // }
+  // data= $(this).serialize() + "&" + $.param(data);
+  $.ajax({
+    url:slice_url(location.pathname)+'ajax/categories_add',
+    type:'post',
+    data:$(this).serialize(),
+    beforeSend:function (){
+      // return confirm('Voulez-vous vraiment ajouter la catégorie?');
+    },
+    success: function(data, status, xhr){
+      console.log('DATAS:',data);
+      console.log('STATUS',status);
+      // if(xhr.statusText == "OK"){
+      //   alert('Votre catégorie à bien été ajouté')
+      // }
+    },
+    error: function (xhr){
+      console.log(xhr)
+    },
+     complete: function(){
+      let input =  $('#input-category')[0];
+      input.value='';
+      input.focus();
+    }
+  })
+} )
+
+
+// AJAX DELETE CATEGORIE:
+
+
+$('.categories_delete').click(function(e){
+  e.preventDefault()
+  let data = {
+   'cat_id': $(this).data('id')
+  }
+  console.log(data['cat_id']);
+  $.ajax({
+    url:slice_url(location.pathname)+'ajax/categories_delete',
+    type:'post',
+    data,
+    beforeSend:function (){
+      // return confirm('Voulez-vous vraiment ajouter la catégorie?');
+    },
+    success: function(data, status, xhr){
+      console.log('DATAS:',data);
+      console.log('STATUS',status);
+      if(xhr.statusText == "OK"){
+        let elem = $(e.currentTarget).parent().parent().parent();
+        elem.fadeOut('slow', function(){ 
+           $(this).remove(); 
+           $('.tooltip').tooltip('hide');
+         });
+       }
+      
+    },
+    error: function (xhr){
+      console.log(xhr)
+    },
+     complete: function(){
+      console.log('Completed!');
+    }
+  })
+  
+} 
+)
+
+
+
+
+
+
 
 })(jQuery);
 

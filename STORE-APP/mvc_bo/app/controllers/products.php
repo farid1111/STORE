@@ -25,6 +25,7 @@ class Products extends Controller
     public function delete($id = null)
     {
         echo $id;
+        print_r($_REQUEST);
     }
 
 }

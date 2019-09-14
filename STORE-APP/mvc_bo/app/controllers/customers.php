@@ -8,6 +8,7 @@ class Customers extends Controller
 
     public function show()
     {
+
         $customers = Customer::all();
         $this->view('customers/show_customers', ['page_title' => "Affichage des Comptes utilisateurs", 'customers' => $customers]);
     }

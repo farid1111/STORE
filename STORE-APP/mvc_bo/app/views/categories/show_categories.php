@@ -23,7 +23,7 @@
         <ul class="list inset totalElements">
             <!-- START FOREACH LOOP -->
             <?php foreach ($data['categories'] as $category): ?>
-            <li class="list-item ">
+            <li class="list-item category_list">
                 <a herf="" class="list-left">
                     <span class="w-40 r-2x _600 text-lg text-u-c accent brown"></span>
                 </a>
@@ -34,7 +34,7 @@
                             <i class="fa fa-link"></i>
                         </a>
 
-                        <a href="" class="btn btn-sm  white b-danger" data-toggle="tooltip" data-placement="top" title="supprimer">
+                        <a href="#" data-id="<?=$category['cat_id']?>" class="btn btn-sm  white b-danger categories_delete" data-toggle="tooltip" data-placement="top" title="supprimer">
                             <i class="fa fa-trash"></i>
                         </a>
 

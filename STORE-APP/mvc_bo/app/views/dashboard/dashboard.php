@@ -113,7 +113,7 @@
     <h6>
         <span class="label brown-300"><?=$view?>.php</span>
         L'adresse réelle de l'adresse virtuelle:
-        <span class="label brown-300">home/index</span>
+        <span class="label brown-300"><?=$_REQUEST['url']?></span>
     </h6>
 
     <p><?=$data['product']->pro_title?></p>

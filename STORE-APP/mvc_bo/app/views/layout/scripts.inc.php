@@ -26,14 +26,15 @@
 <script src="<?=to_src('html/scripts/ui-scroll-to.js')?>"></script>
 <script src="<?=to_src('html/scripts/ui-toggle-class.js')?>"></script>
 
-<!-- My script -->
-<script src="<?=to_src('html/scripts/app.js');?>"></script>
+
 
 <!-- ajax -->
 <script src="<?=to_src('libs/jquery/jquery-pjax/jquery.pjax.js')?>"></script>
 <script src="<?=to_src('html/scripts/ajax.js')?>"></script>
 <!-- endbuild -->
 <script src="<?=to_src('libs/jquery/parsleyjs/dist/parsley.min.js')?>"></script>
+<!-- My script -->
+<script src="<?=to_src('html/scripts/app.js');?>"></script>
 </body>
 
 </html>

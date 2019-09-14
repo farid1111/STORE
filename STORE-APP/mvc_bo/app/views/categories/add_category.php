@@ -14,7 +14,7 @@
                         <i class="fa fa-chevron-left mr-2"></i>
                         Voir les Catégories
                     </a>
-                    <form ui-jp="parsley">
+                    <form ui-jp="parsley" name="cat" id="cat" action="#" method="post">
                         <div class="box padding">
                             <div class="box-header mb-3">
                                 <h2>Ajout d'une Catégorie</h2>
@@ -24,13 +24,13 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" placeholder="Le nom de la catégorie" data-parsley-range="[4, 45]" required>
+                                        <input name="category" id="input-category" type="text" class="form-control" placeholder="Le nom de la catégorie" data-parsley-range="[4, 45]" required>
                                     </div>
                                 </div>
-
                             </div>
                             <div class=" p-a text-right">
-                                <button type="submit" class="btn text-dark warn pointer">Ajouter</button>
+                                <button type="submit" class="btn text-dark warn pointer add_cat">Ajouter</button>
+
                             </div>
                         </div>
                     </form>

@@ -35,10 +35,15 @@ class Home extends Controller
         // $this->view('home/index', ['products' => $products]);
     }
 
-    public function show()
+    public function show($id = null)
     {
+        if ($id == null) {
+            echo json_encode(["erro" => "Veuillez préciser un id!"], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
 
         $products = Product::all();
+        echo $products;
         $this->view('home/index', ['products' => $products]);
     }
 
