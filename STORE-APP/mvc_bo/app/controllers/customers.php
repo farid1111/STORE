@@ -6,10 +6,11 @@ class Customers extends Controller
         $this->model('Customer');
     }
 
-    public function show()
+    public function index()
     {
 
-        $customers = Customer::all();
+        // $customers = Customer::all();
+        $customers = Customer::orderBy('cus_id', 'desc')->get();
         $this->view('customers/show_customers', ['page_title' => "Affichage des Comptes utilisateurs", 'customers' => $customers]);
     }
 

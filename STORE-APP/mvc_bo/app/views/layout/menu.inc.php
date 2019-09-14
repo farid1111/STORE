@@ -6,7 +6,7 @@
             <i class="material-icons">menu</i>
         </a>
         <!-- brand -->
-        <a class="navbar-brand" href="<?=WWW_PUBLIC . '/home/index'?>">
+        <a class="navbar-brand" href="<?=WWW_PUBLIC . '/home'?>">
             <img src="<?=to_src('assets/images/logo.png')?>" alt="profile image">
             <span class="hidden-folded inline">ADMIN</span>
         </a>
@@ -16,7 +16,7 @@
             <!-- link and dropdown -->
             <ul class="nav navbar-nav navbar-nav-inline text-center pull-left m-r text-warn-hover">
                 <li class="nav-item mx-2">
-                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/products/show'?>">
+                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/products'?>">
                         <span class="nav-text">
                             <i class="material-icons">shopping_basket</i>
                             <span class="text-xs">Produits</span>
@@ -24,7 +24,7 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/categories/show'?>">
+                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/categories'?>">
                         <span class="nav-text">
                             <i class="material-icons">local_play</i>
                             <span class="text-xs">Catégories</span>
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/customers/show'?>">
+                    <a class="nav-link btn menuChoco" href="<?=WWW_PUBLIC . '/customers'?>">
                         <span class="nav-text">
                             <i class="material-icons">person_pin</i>
                             <span class="text-xs">Clients</span>

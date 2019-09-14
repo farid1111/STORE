@@ -14,8 +14,7 @@ class Product extends Eloquent
     // On renseigne le nom de la table associée au modèle Eloquent
     // Si on ne renseigne pas la propriété "$table" Laravel va déduire le nom de la table à partir du nom du modèle, ici Product.
     // Autrement dit dans notre cas on pourrait éviter cette ligne de code.
-    // const CREATED_AT = 'creation_date';
-    // const UPDATED_AT = 'last_update';
+
     protected $table = 'st_products';
     protected $primaryKey = 'pro_id';
     protected $fillable = ['pro_title', 'pro_descr'];

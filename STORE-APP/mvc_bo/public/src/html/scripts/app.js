@@ -141,7 +141,10 @@ return url.slice(-url.length,indexOfFirst)
 
 
 
-// AJAX add category:
+// ===========================================================
+// AJAX ADD CATEGORY
+// ===========================================================
+
 $('#cat').submit(function(e){
   e.preventDefault()
   // var data = {
@@ -173,39 +176,39 @@ $('#cat').submit(function(e){
   })
 } )
 
-
-// AJAX DELETE CATEGORIE:
-
+// ===========================================================
+// AJAX DELETE CATEGORY
+// ===========================================================
 
 $('.categories_delete').click(function(e){
   e.preventDefault()
   let data = {
-   'cat_id': $(this).data('id')
+    'cat_id': $(this).data('id')
   }
-  console.log(data['cat_id']);
   $.ajax({
     url:slice_url(location.pathname)+'ajax/categories_delete',
     type:'post',
     data,
     beforeSend:function (){
-      // return confirm('Voulez-vous vraiment ajouter la catégorie?');
+      // $('.tooltip').tooltip('hide');
+      //  return confirm(`Voulez-vous vraiment supprimer la catégorie: ${$('.categories_delete').data('descr')}`);
     },
     success: function(data, status, xhr){
       console.log('DATAS:',data);
       console.log('STATUS',status);
-      if(xhr.statusText == "OK"){
-        let elem = $(e.currentTarget).parent().parent().parent();
+      if(data){
+        let elem = $(e.currentTarget).parent().parent().parent().parent();
         elem.fadeOut('slow', function(){ 
-           $(this).remove(); 
-           $('.tooltip').tooltip('hide');
-         });
-       }
+          $(this).remove(); 
+          $('.tooltip').tooltip('hide');
+        });
+      }
       
     },
     error: function (xhr){
       console.log(xhr)
     },
-     complete: function(){
+    complete: function(){
       console.log('Completed!');
     }
   })
@@ -213,8 +216,36 @@ $('.categories_delete').click(function(e){
 } 
 )
 
+// ===========================================================
+// AJAX SHOW PRODUCT
+// ===========================================================
 
 
+
+$('.show-product').click(function(e){
+  let data = {
+    'pro_id': $(this).data('proid')
+  }
+  $.ajax({
+    url:slice_url(location.pathname)+'ajax/products_show',
+    type:'post',
+    data,
+    success: function(datas, status, xhr){
+      let product = JSON.parse(datas);
+      $('.pro_img_url_recto').attr('src', product['pro_img_url_recto'])
+      $('.pro_title').html(product['pro_title'])
+      $('.pro_descr').html(product['pro_descr'])
+      $('.pro_id').html(product['pro_id'])
+      $('.pro_price').html(product['pro_price_euro'])
+      $('.pro_date').html(new Date(product['pro_date']).toLocaleString())
+      
+       
+    },
+    error: function (xhr){
+      console.log(xhr)
+    }
+  })
+})
 
 
 

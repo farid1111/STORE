@@ -32,16 +32,17 @@
                 </a>
                 <div class="list-body">
                     <div class="m-y-sm pull-right">
+                        <span class="show-product" data-proid="<?=$product['pro_id']?>" data-toggle="modal" data-target="#m-a-f-p">
+                            <a class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </span>
 
-                        <a href="" class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
-                            <i class="fa fa-link"></i>
-                        </a>
-
-                        <a href="<?=WWW_PUBLIC . '/products/delete'?>" class="btn btn-sm  white b-danger" data-toggle="tooltip" data-placement="top" title="supprimer">
+                        <a href="#" class="btn btn-sm  white b-danger" data-toggle="tooltip" data-placement="top" title="supprimer">
                             <i class="fa fa-trash"></i>
                         </a>
 
-                        <a href="" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
+                        <a href="#" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
                             <i class="fa fa-pencil "></i>
                         </a>
                     </div>
@@ -60,7 +61,46 @@
     </div>
 </div>
 
+<!-- START MODAL FADE -->
+<div id="m-a-f-p" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fiche Produit</h5>
+                <button class="btn btn-sm btn-icon white pointer" data-dismiss="modal">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center p-lg">
 
+                <div>
+                    <div class="box">
+                        <div class="item">
+                            <div class="item-overlay active p-a">
+                                <span class="pull-right label dark-white text-color "><span class=" pro_price"></span><i class="fa fa-euro ml-2"></i></span>
+                                <span href="" class="pull-left text-u-c label brown"><i class="fa fa-tag"><span class="ml-1 pro_id"></span></i></span>
+                            </div>
+                            <img src="" class="w-full pro_img_url_recto">
+                        </div>
+                        <div class="p-a">
+                            <div class="text-muted m-b-xs">
+                                <span class="fa fa-calendar"></span>
+                                <span class="ml-2 m-r pro_date"></span>
+                            </div>
+                            <div class="m-b h-2x">
+                                <p class="_800 pro_title"></p>
+                            </div>
+                            <!--class="h-3x" : Limiter la taille du paragraphe -->
+                            <p class="pro_descr"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL FADE -->
 
 <!-- ############ LAYOUT END-->
 

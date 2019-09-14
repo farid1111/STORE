@@ -33,10 +33,11 @@
                         <a href="" class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
                             <i class="fa fa-link"></i>
                         </a>
-
-                        <a href="#" data-id="<?=$category['cat_id']?>" class="btn btn-sm  white b-danger categories_delete" data-toggle="tooltip" data-placement="top" title="supprimer">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        <span data-toggle="modal" data-target="#m-a-f">
+                            <a href="" data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>" class="btn btn-sm  white b-danger categories_delete" data-toggle="tooltip" data-placement="top" title="supprimer">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </span>
 
                         <a href="" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
                             <i class="fa fa-pencil "></i>
@@ -46,13 +47,6 @@
                     <div>
                         <a class="firstTitle h-100" href=""><?=$category['cat_descr']?></a>
                     </div>
-
-
-                    <!-- <div class="text-sm">
-                        <span class="text-muted">Chocolat noir au lait grand cru avec caramel | Pérou</span>
-                        <span class="label brown-300"></span>
-                        <span class="label red-300"></span>
-                    </div> -->
                 </div>
             </li>
             <?php endforeach;?>
@@ -60,6 +54,26 @@
         </ul>
     </div>
 </div>
+
+<!-- START MODAL FADE -->
+<div id="m-a-f" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal</h5>
+            </div>
+            <div class="modal-body text-center p-lg">
+                <p>Are you sure to execute this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MODAL FADE -->
+
 <!-- ############ LAYOUT END-->
 <?php include APP_PATH . '/views/layout/footer.inc.php';?>
 <?php include APP_PATH . '/views/layout/scripts.inc.php';?>

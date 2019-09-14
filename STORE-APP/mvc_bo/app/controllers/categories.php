@@ -7,7 +7,7 @@ class Categories extends Controller
         $this->model('Category');
     }
 
-    public function show()
+    public function index()
     {
         // $categories = Category::all();
         //Récupérer toutes les catégories et les ordonner en descendant par "cat_id":
