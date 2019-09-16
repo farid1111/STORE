@@ -9,6 +9,6 @@ class Category extends Eloquent
 
     protected $table = 'st_categories';
     protected $primaryKey = 'cat_id';
-    protected $fillable = ['cat_id', 'cat_descr'];
+    protected $fillable = ['cat_id', 'cat_descr', 'is_exist'];
 
 }

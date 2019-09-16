@@ -14,22 +14,22 @@
                         <i class="fa fa-chevron-left mr-2"></i>
                         Voir les Catégories
                     </a>
-                    <form ui-jp="parsley" id="add-category" action="<?=WWW_PUBLIC . '/ajax/categories_add'?>">
+                    <form ui-jp="parsley" id="category-update-form" action="<?=WWW_PUBLIC . '/ajax/categories_update'?>">
                         <div class="box padding">
                             <div class="box-header mb-3">
-                                <h2>Ajout d'une Catégorie</h2>
+                                <h2>Modification d'une Catégorie</h2>
                             </div>
                             <div class="box-divider m-0"></div>
                             <div class="box-body">
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="cat_descr" class="form-control" placeholder="Le nom de la catégorie" autofocus data-parsley-range="[4, 45]" required>
+                                        <input type="text" name="cat_descr" autofocus class="form-control update-descr-input" placeholder="Le nom de la catégorie" data-parsley-range="[4, 45]" required>
                                     </div>
                                 </div>
                             </div>
                             <div class=" p-a text-right">
-                                <button type="submit" class="btn text-dark warn pointer add_cat">Ajouter</button>
+                                <input type="submit" class="btn text-dark warn pointer" value="Modifier">
                             </div>
                         </div>
                     </form>

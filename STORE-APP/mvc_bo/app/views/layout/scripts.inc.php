@@ -1,6 +1,6 @@
 <!-- build:js ../public/html/scripts/app.html.js -->
 <!-- jQuery -->
-<script src="<?=to_src('libs/jquery/jquery/dist/jquery.js')?>"></script>
+<script src="<?=to_src('libs/jquery/jquery/dist/jquery-3.4.1.min.js')?>"></script>
 
 <!-- Bootstrap -->
 <script src="<?=to_src('libs/jquery/popper/popper.min.js')?>"></script>

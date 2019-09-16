@@ -13,10 +13,10 @@
                         <i class="fa fa-chevron-left mr-2"></i>
                         Voir les Produits
                     </a>
-                    <form id="add-product" action="<?=WWW_PUBLIC . '/ajax/products_add'?>" ui-jp="parsley">
+                    <form id="product-update-form" action="<?=WWW_PUBLIC . '/ajax/products_update'?>" ui-jp="parsley">
                         <div class="box padding">
                             <div class="box-header mb-3">
-                                <h2>Ajout d'un Produit</h2>
+                                <h2>Modification d'un Produit</h2>
                             </div>
                             <div class="box-divider m-0"></div>
                             <div class="box-body">
@@ -25,21 +25,21 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Titre</label>
                                     <div class="col-sm-10">
-                                        <input autofocus name="pro_title" type="text" class="form-control" placeholder="Le titre du produit" data-parsley-range="[4, 200]" required>
+                                        <input autofocus name="pro_title" type="text" class="up-pro-title form-control" placeholder="Le titre du produit" data-parsley-range="[4, 200]" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Sous Titre 1</label>
                                     <div class="col-sm-10">
-                                        <input name="pro_subtitle1" type="text" class="form-control" placeholder="Le 1er sous-titre du produit" data-parsley-range="[4, 255]">
+                                        <input name="pro_subtitle1" type="text" class="up-pro-subtitle1 form-control" placeholder="Le 1er sous-titre du produit" data-parsley-range="[4, 255]">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Sous Titre 2</label>
                                     <div class="col-sm-10">
-                                        <input name="pro_subtitle2" type="text" class="form-control" placeholder="Le 2ème sous-titre du produit" data-parsley-range="[4, 255]">
+                                        <input name="pro_subtitle2" type="text" class="up-pro-subtitle2 form-control" placeholder="Le 2ème sous-titre du produit" data-parsley-range="[4, 255]">
                                     </div>
                                 </div>
 
@@ -48,33 +48,33 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">IMAGE RECTO</label>
                                     <div class="col-sm-10">
-                                        <input name="pro_img_url_recto" type="url" class="form-control" placeholder="L'URL de l'image Recto" data-parsley-id="54" data-parsley-range="[4, 255]">
+                                        <input name="pro_img_url_recto" type="url" class="up-pro-img-recto form-control" placeholder="L'URL de l'image Recto" data-parsley-id="54" data-parsley-range="[4, 255]" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">IMAGE VERSO</label>
                                     <div class="col-sm-10">
-                                        <input name="pro_img_url_verso" type="url" class="form-control" placeholder="L'URL de l'image Verso" data-parsley-id="54" data-parsley-range="[4, 255]">
+                                        <input name="pro_img_url_verso" type="url" class="up-pro-img-verso form-control" placeholder="L'URL de l'image Verso" data-parsley-id="54" data-parsley-range="[4, 255]" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Description</label>
                                     <div class="col-sm-10">
-                                        <textarea name="pro_descr" class="form-control" rows="6" data-minwords="6" required="" placeholder="Saisissez la description du produit" data-parsley-range="[30, 5000]" data-parsley-id="25"></textarea>
+                                        <textarea name="pro_descr" class="textarea-update up-pro-descr form-control" rows="6" data-minwords="6" required="" placeholder="Saisissez la description du produit" data-parsley-range="[30, 5000]" data-parsley-id="25"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Prix</label>
                                     <div class="col-sm-10">
-                                        <input name="pro_price_euro" type="text" data-parsley-type="number" class="form-control has-value " placeholder="Le prix du produit en euro" data-parsley-id="60" required>
+                                        <input name="pro_price_euro" type="text" data-parsley-type="number" class="up-pro-price form-control has-value " placeholder="Le prix du produit en euro" data-parsley-id="60" required>
                                     </div>
                                 </div>
 
                                 <div class=" p-a text-right">
-                                    <button type="submit" class="btn text-dark warn pointer">Ajouter</button>
+                                    <button type="submit" class="btn text-dark warn pointer">Modifier</button>
                                 </div>
                             </div>
                         </div>

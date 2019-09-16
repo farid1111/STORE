@@ -14,50 +14,50 @@
                         <i class="fa fa-chevron-left mr-2"></i>
                         Voir les Comptes
                     </a>
-                    <form id="add-customer" action="<?=WWW_PUBLIC . '/ajax/customers_add'?>" ui-jp="parsley">
+                    <form id="customer-update-form" action="<?=WWW_PUBLIC . '/ajax/customers_update'?>" ui-jp="parsley">
                         <div class="box padding">
                             <div class="box-header mb-3">
-                                <h2>Créer un compte Client</h2>
+                                <h2>Modifier un compte Client</h2>
                             </div>
                             <div class="box-divider m-0"></div>
                             <div class="box-body">
                                 <p class="text-muted">Veuillez remplir tous les champs</p>
-
                                 <div class="form-group row align-items-baseline">
                                     <label class="col-sm-2 form-control-label">Sexe</label>
                                     <p class="">
                                         <label class="md-check ml-2">
-                                            <input type="radio" name="cus_civility" checked class="has-value" value="0">
+                                            <input type="radio" name="cus_civility" checked class="up-cus-civility-0 has-value" value="0">
                                             <i class="pink no-icon"></i>
                                             Féminin
                                         </label>
                                     </p>
                                     <p class="ml-4">
                                         <label class="md-check">
-                                            <input type="radio" name="cus_civility" class="has-value" value="1">
+                                            <input type="radio" name="cus_civility" class="up-cus-civility-1 has-value" value="1">
                                             <i class="blue no-icon"></i>
                                             Masculin
                                         </label>
                                     </p>
                                 </div>
+
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Nom</label>
                                     <div class="col-sm-10">
-                                        <input autofocus name="cus_lastname" type="text" class="form-control" placeholder="Entrez un nom" data-parsley-range="[1, 45]" required>
+                                        <input autofocus name="cus_lastname" type="text" class="up-cus-lastname form-control" placeholder="Entrez un nom" data-parsley-range="[1, 45]" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Prénom</label>
                                     <div class="col-sm-10">
-                                        <input name="cus_firstname" type="text" class="form-control" placeholder="Entrez un prénom" data-parsley-range="[1, 45]" required>
+                                        <input name="cus_firstname" type="text" class="up-cus-firstname form-control" placeholder="Entrez un prénom" data-parsley-range="[1, 45]" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 form-control-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input name="cus_mail" type="email" class="form-control" required="" placeholder="Entrez une adresse email" data-parsley-id="56" data-parsley-range="[4, 80]">
+                                        <input name="cus_mail" type="email" class="up-cus-mail form-control" required="" placeholder="Entrez une adresse email" data-parsley-id="56" data-parsley-range="[4, 80]">
                                     </div>
                                 </div>
 
@@ -69,12 +69,12 @@
                                     </div>
                                     <div class=" col-sm-5">
                                         <label>Confirmer</label>
-                                        <input name="cus_password2" type="password" class="form-control" data-parsley-equalto="#pwd" required="" placeholder="Confirmez le mot de passe" data-parsley-id="10" data-parsley-range="[4, 32]" />
+                                        <input type="password" class="cus-password-2 form-control" data-parsley-equalto="#pwd" required="" placeholder="Confirmez le mot de passe" data-parsley-id="10" data-parsley-range="[4, 32]" />
                                     </div>
                                 </div>
                             </div>
                             <div class=" p-a text-right">
-                                <input type="submit" class="btn text-dark warn pointer" value="Valider">
+                                <input type="submit" class="btn text-dark warn pointer" value="Modifier">
                             </div>
                         </div>
                     </form>

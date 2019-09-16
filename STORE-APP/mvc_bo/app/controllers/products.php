@@ -8,13 +8,11 @@ class Products extends Controller
 
     public function index($id = null)
     {
-        // $oneProduct = Product::find($id);
-        // Afficher une Table en JSON:
-        // echo Product::all(); // Le echo affiche un tableau "JSON" des articles.
 
         // $products = Product::all();
-        $products = Product::orderBy('pro_id', 'desc')->get();
-        $this->view('products/show_products', ['page_title' => "Affichage des produits", 'products' => $products]);
+        $products = Product::orderBy('pro_id', 'DESC')->get();
+        $total = $products->count();
+        $this->view('products/show_products', ['page_title' => "Affichage des produits", 'products' => $products, "total" => $total]);
     }
 
     public function add($id = null)
@@ -23,10 +21,10 @@ class Products extends Controller
         $this->view('products/add_product', ['page_title' => "Ajouter un produit"]);
     }
 
-    public function delete($id = null)
+    public function update($id = null)
     {
-        echo $id;
-        print_r($_REQUEST);
+
+        $this->view('products/update_product', ['page_title' => "Modifier un produit"]);
     }
 
 }

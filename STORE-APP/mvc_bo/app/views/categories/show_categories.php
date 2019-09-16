@@ -15,7 +15,7 @@
         <div class="box-header">
             <h3 class=" d-flex align-items-center">
                 <span class="text-u-c text-md">Catégories</span>
-                <span class="label rounded ml-2 brown totalNumber"></span>
+                <span class="label rounded ml-2 brown total-categories"><?=$data['total']?></span>
             </h3>
             <small>Tous nos types de chocolats</small>
         </div>
@@ -24,28 +24,33 @@
             <!-- START FOREACH LOOP -->
             <?php foreach ($data['categories'] as $category): ?>
             <li class="list-item category_list">
-                <a herf="" class="list-left">
-                    <span class="w-40 r-2x _600 text-lg text-u-c accent brown"></span>
+
+                <a class="show-cat-details d-flex list-left" data-toggle="modal" data-target="#m-a-f-cat-details" data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>">
+                    <span class=" w-40 rounded-left _600 text-md text-u-c accent brown-900"><?=$category['cat_id']?></span>
+                    <span class="d-flex align-items-center _400 text-md text-u-c rounded-right accent brown px-3"><?=$category['cat_descr']?></span>
                 </a>
+
 
                 <div class="list-body">
                     <div class="m-y-sm pull-right">
-                        <a href="" class="btn btn-sm  white b-info" data-toggle="tooltip" data-placement="top" title="voir">
-                            <i class="fa fa-link"></i>
-                        </a>
-                        <span data-toggle="modal" data-target="#m-a-f">
-                            <a href="" data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>" class="btn btn-sm  white b-danger categories_delete" data-toggle="tooltip" data-placement="top" title="supprimer">
+
+                        <span data-toggle="modal" data-target="#m-a-f-cat-details">
+                            <a data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>" class="btn btn-sm  white b-info show-cat-details" data-toggle="tooltip" data-placement="top" title="voir">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </span>
+
+                        <span data-toggle="modal" data-target="#m-a-f-pro-delete">
+                            <a data-link="<?=WWW_PUBLIC . '/ajax/categories_delete'?>" data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>" data-firstname="<?=$category['cus_firstname']?>" class="btn btn-sm  white b-danger categories_delete" data-toggle="tooltip"
+                                data-placement="top" title="supprimer">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </span>
 
-                        <a href="" class="btn btn-sm white b-success" data-toggle="tooltip" data-placement="top" title="modifier">
+                        <a data-link="<?=WWW_PUBLIC . '/ajax/categories_update'?>" data-id="<?=$category['cat_id']?>" data-descr="<?=$category['cat_descr']?>" href="<?=WWW_PUBLIC . '/categories/update'?>" class="btn btn-sm white b-success categories_update" data-toggle="tooltip" data-placement="top"
+                            title="modifier">
                             <i class="fa fa-pencil "></i>
                         </a>
-                    </div>
-
-                    <div>
-                        <a class="firstTitle h-100" href=""><?=$category['cat_descr']?></a>
                     </div>
                 </div>
             </li>
@@ -55,24 +60,57 @@
     </div>
 </div>
 
-<!-- START MODAL FADE -->
-<div id="m-a-f" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+<!-- START DELETE MODAL FADE -->
+<div id="m-a-f-pro-delete" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal</h5>
+                <h5 class="modal-title">Suppression</h5>
             </div>
             <div class="modal-body text-center p-lg">
-                <p>Are you sure to execute this action?</p>
+                <p>Êtes-vous sûr de supprimer cette catégorie?</p>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="d-flex">
+                        <span class="cat-id-confirm w-40 rounded-left _600 text-md text-u-c accent brown-900"></span>
+                        <span class="d-flex align-items-center cat-descr-confirm _400 text-md text-u-c rounded-right accent brown px-3"></span>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
-                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+                <button data-modaldelete="false" type="button" class="modal-del pointer btn dark-white p-x-md" data-dismiss="modal">Non</button>
+                <button data-modaldelete="true" type="button" class="modal-del pointer btn danger p-x-md" data-dismiss="modal">Oui</button>
             </div>
         </div>
     </div>
 </div>
-<!-- END MODAL FADE -->
+<!-- END DELETE MODAL FADE -->
+
+
+<!-- START SHOW DETAILS MODAL FADE SHOW -->
+<div id="m-a-f-cat-details" class="modal fade" data-backdrop="true" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Fiche Produit</h5>
+                <button class="btn btn-sm btn-icon white pointer" data-dismiss="modal">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </div>
+            <div class="modal-body text-center p-lg">
+
+                <div class="d-flex flex-column align-items-center">
+                    <div class="d-flex">
+                        <span class="cat-id-details w-40 rounded-left _600 text-md text-u-c accent brown-900"></span>
+                        <span class="cat-descr-details d-flex align-items-center _400 text-md text-u-c rounded-right accent brown px-3"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SHOW DETAILS MODAL FADE SHOW -->
 
 <!-- ############ LAYOUT END-->
 <?php include APP_PATH . '/views/layout/footer.inc.php';?>
